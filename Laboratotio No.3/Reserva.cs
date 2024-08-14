@@ -8,9 +8,18 @@ namespace Laboratotio_No._3
 {
     public class Reserva
     {
-        string NumeroUnico { get; set; }
-        string Fecha { get; set; }
-        string Hora { get; set; }
+        public string NumeroUnico { get; set; }
+        public string Fecha { get; set; }
+        public string Hora { get; set; }
+        public int PrecioLugar { get; set; }
+
+        public Reserva(string numerounico, string fecha, string hora, int precioLugar)
+        {
+            NumeroUnico = numerounico;
+            Fecha = fecha;
+            Hora = hora;
+            PrecioLugar = precioLugar;
+        }
 
     }
 }
