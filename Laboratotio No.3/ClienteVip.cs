@@ -15,5 +15,10 @@ namespace Laboratotio_No._3
         {
             DescuentoEspecial = decuentoespecial;
         }
+        public override void MostrarInformacion()
+        {
+            base.MostrarInformacion();
+            Console.WriteLine($"Descuento especial que se aplica: {DescuentoEspecial}");
+        }
     }
 }

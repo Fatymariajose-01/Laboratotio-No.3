@@ -19,5 +19,13 @@ namespace Laboratotio_No._3
             CorreoElectronico = correoelectronico;
             NumeroDeTelefono = numerodetelefono;
         }
+        public virtual void MostrarInformacion()
+        {
+            Console.WriteLine("...DATOS...");
+            Console.WriteLine($"Nombre: {Nombre}");
+            Console.WriteLine($"Correo Electronico: {CorreoElectronico}");
+            Console.WriteLine($"Numero de Teléfono: {NumeroDeTelefono}");
+        }
+
     }
 }
