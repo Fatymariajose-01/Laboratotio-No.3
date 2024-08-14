@@ -29,10 +29,16 @@ namespace Laboratotio_No._3
             CantidadPlatos = cantidadplatos;
             Cliente = cliente;
         }
-        public static void MostrarInformacion()
+        public virtual void MostrarInformacion()
         {
-            Console.WriteLine();
-
+            Console.WriteLine($"Número unico de la reserva: {NumeroUnico}");
+            Console.WriteLine($"Fecha: {Fecha}");
+            Console.WriteLine($"Hora: {Hora}");
+            Console.WriteLine($"Precio del Lugar: {PrecioLugar}");
+            Console.WriteLine($"Nombre del Plato: {NombrePlato}");
+            Console.WriteLine($"Precio del Plato: {PrecioPlato}");
+            Console.WriteLine($"Cantidad de Platos: {CantidadPlatos}");
+            Console.WriteLine($"Cliente: {Cliente}");
         }
         public virtual double CalcularTotal()
         {
