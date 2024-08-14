@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace Laboratotio_No._3
 {
+
     public class Reserva
     {
         public string NumeroUnico { get; set; }
@@ -50,7 +51,7 @@ namespace Laboratotio_No._3
                 total -= total * (clienteVIP.DescuentoEspecial / 100);
                 total = total + PrecioLugar;
             }
-
+            Console.WriteLine("El total es: ");
             return total;
         }
     }

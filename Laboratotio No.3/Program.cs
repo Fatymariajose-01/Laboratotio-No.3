@@ -5,7 +5,53 @@ public class Program
 public static List<Cliente> listaClientes = new List<Cliente>();
 public static  List<Reserva> listaReserva  = new List<Reserva>();
 
-public static void RegistrarClienteRegular()
+    public static void Main()
+    {
+        while (true)
+        {
+            Console.WriteLine("1. Registrar Cliente Regular");
+            Console.WriteLine("2. Registrar Cliente VIP");
+            Console.WriteLine("3. Registrar Reserva");
+            Console.WriteLine("4. Mostrar Detalles de Clientes");
+            Console.WriteLine("5. Mostrar Detalles de Reservas");
+            Console.WriteLine("6. Buscar Cliente por Nombre");
+            Console.WriteLine("7. Buscar Reserva por Número");
+            Console.WriteLine("8. Salir");
+
+            int opcion = Convert.ToInt32(Console.ReadLine());   
+
+            switch (opcion)
+            {
+                case 1:
+                    RegistrarClienteRegular();
+                    break;
+                case 2:
+                    RegistrarClienteVIP();
+                    break;
+                case 3:
+                    RegistrarReserva();
+                    break;
+                case 4:
+                    MostrarDetallesClientes();
+                    break;
+                case 5:
+                    MostrarDetallesReservas();
+                    break;
+                case 6:
+                    BuscarClientePorNombre();
+                    break;
+                case 7:
+                    BuscarReservaPorNumero();
+                    break;
+                case 8:
+                    return;
+                default:
+                    Console.WriteLine("Opción no válida");
+                    break;
+            }
+        }
+    }
+    public static void RegistrarClienteRegular()
 {
     Console.Write("Nombre del Cliente: ");
     string nombre = Console.ReadLine();
@@ -71,13 +117,14 @@ public static void RegistrarClienteRegular()
         listaReserva.Add(reserva);
         Console.WriteLine("Reserva registrada con éxito.");
     }
-    private static void MostrarDetallesClientes()
+    public static void MostrarDetallesClientes()
     {
         Console.WriteLine("Detalles de Clientes:");
-        foreach (var cliente in listaClientes)
+        foreach (var clientes1 in listaClientes)
         {
-            Console.WriteLine(cliente);
+            Console.WriteLine(clientes1);
         }
+        
     }
 
     private static void MostrarDetallesReservas()
