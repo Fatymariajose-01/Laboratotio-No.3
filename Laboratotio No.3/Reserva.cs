@@ -48,6 +48,7 @@ namespace Laboratotio_No._3
             {
                 // Aplica descuento especial si el cliente es VIP
                 total -= total * (clienteVIP.DescuentoEspecial / 100);
+                total = total + PrecioLugar;
             }
 
             return total;

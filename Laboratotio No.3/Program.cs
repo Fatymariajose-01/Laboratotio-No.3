@@ -1,4 +1,5 @@
-﻿using Laboratotio_No._3;
+﻿using System.Data;
+using Laboratotio_No._3;
 public class Program
 { 
 public static List<Cliente> listaClientes = new List<Cliente>();
@@ -18,5 +19,103 @@ public static void RegistrarClienteRegular()
     Console.WriteLine("Cliente Regular registrado con éxito.");
 }
 
+    public static void RegistrarClienteVIP()
+    {
+        Console.Write("Nombre del Cliente: ");
+        string nombre = Console.ReadLine();
+        Console.Write("Correo Electrónico: ");
+        string correo = Console.ReadLine();
+        Console.Write("Número de Teléfono: ");
+        string telefono = Console.ReadLine();
+        Console.Write("Descuento Especial (%): ");
+        double descuento = double.Parse(Console.ReadLine());
 
+        ClienteVip cliente = new ClienteVip(nombre, correo, telefono, descuento);
+        listaClientes.Add(cliente);
+        Console.WriteLine("Cliente VIP registrado con éxito.");
+    }
+    private static void RegistrarReserva()
+    {
+        int cantidadDePlatos = 0;
+        Console.WriteLine("Ingrese el Número Único que se asignará: ");
+        string numerounico = Console.ReadLine();
+        Console.Write("Fecha de la Reserva (yyyy-mm-dd): ");
+        string fecha = Console.ReadLine();
+        Console.Write("Hora de la Reserva (HH:mm): ");
+        string hora = Console.ReadLine();
+        Console.WriteLine("Prrecio del Lugar: ");
+        int PrecioLugar = Convert.ToInt32(Console.ReadLine());
+        Console.Write("Nombre de Platos: ");
+        int nombrePlatos = int.Parse(Console.ReadLine());
+        List<string> platos = new List<string>();
+        for (int i = 0; i < cantidadDePlatos; i++)
+        {
+            Console.Write($"Nombre del Plato {i + 1}: ");
+            platos.Add(Console.ReadLine());
+        }
+        Console.WriteLine("Precio de cada plato: ");
+        int PrecioPlato = Convert.ToInt32(Console.ReadLine());
+        Console.WriteLine("Cantidad de platos: ");
+        cantidadDePlatos = Convert.ToInt32(Console.ReadLine());
+        Console.Write("Nombre del Cliente: ");
+        string nombreCliente = Console.ReadLine();
+        Cliente cliente = listaClientes.Find(c => c.Nombre.Equals(nombreCliente, StringComparison.OrdinalIgnoreCase));
+
+        if (cliente == null)
+        {
+            Console.WriteLine("Cliente no encontrado.");
+            return;
+        }
+
+        Reserva reserva = new Reserva(numerounico, fecha, hora, PrecioLugar,  platos, PrecioPlato, cantidadDePlatos, cliente);
+        listaReserva.Add(reserva);
+        Console.WriteLine("Reserva registrada con éxito.");
+    }
+    private static void MostrarDetallesClientes()
+    {
+        Console.WriteLine("Detalles de Clientes:");
+        foreach (var cliente in listaClientes)
+        {
+            Console.WriteLine(cliente);
+        }
+    }
+
+    private static void MostrarDetallesReservas()
+    {
+        Console.WriteLine("Detalles de Reservas:");
+        foreach (var reserva in listaReserva)
+        {
+            Console.WriteLine(reserva);
+        }
+    }
+
+    private static void BuscarClientePorNombre()
+    {
+        Console.Write("Nombre del Cliente a buscar: ");
+        string nombre = Console.ReadLine();
+        var cliente = listaClientes.Find(c => c.Nombre.Equals(nombre, StringComparison.OrdinalIgnoreCase));
+        if (cliente != null)
+        {
+            Console.WriteLine(cliente);
+        }
+        else
+        {
+            Console.WriteLine("Cliente no encontrado.");
+        }
+    }
+
+    private static void BuscarReservaPorNumero()
+    {
+        Console.Write("Número de Reserva a buscar: ");
+        string numero = Console.ReadLine();
+        var reserva = listaReserva.Find(r => r.NumeroUnico == numero);
+        if (reserva != null)
+        {
+            Console.WriteLine(reserva);
+        }
+        else
+        {
+            Console.WriteLine("Reserva no encontrada.");
+        }
+    }
 }
